@@ -1,1 +1,979 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia de Idiomas Brighton | Uruguay</title>
+    <!-- Tailwind CSS para diseño moderno y responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f4f6fa',
+                            100: '#e8ecf4',
+                            200: '#ccd7e9',
+                            300: '#9fb2d3',
+                            400: '#6b89b8',
+                            500: '#46659c',
+                            600: '#344d7d',
+                            700: '#2a3e65',
+                            800: '#1b2843',
+                            900: '#0f172a', /* Azul Marino Oscuro */
+                            950: '#080d1a',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons para iconos limpios y vectoriales -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- AOS para animaciones fluidas al hacer scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #080d1a;
+            color: #f4f6fa;
+        }
+        /* Custom scrollbar para estética premium */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1b2843;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #46659c;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
 
+<!-- BARRA DE NAVEGACIÓN -->
+<header class="fixed top-0 left-0 w-full z-50 bg-navy-950/85 backdrop-blur-md border-b border-navy-800/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex items-center space-x-3 group">
+            <div class="bg-gradient-to-tr from-navy-600 to-navy-400 p-2.5 rounded-xl shadow-lg shadow-navy-900/40 border border-navy-500/30">
+                <i data-lucide="languages" class="w-6 h-6 text-gold-400 group-hover:rotate-12 transition-transform duration-300"></i>
+            </div>
+            <div>
+                <span class="text-2xl font-black tracking-wider text-white">BRIGHTON</span>
+                <span class="block text-[10px] text-gold-400 tracking-widest font-semibold uppercase">Language Academy</span>
+            </div>
+        </a>
+
+        <!-- Navegación de escritorio -->
+        <nav class="hidden md:flex space-x-8 items-center">
+            <a href="#inicio" class="text-navy-200 hover:text-white font-medium text-sm transition-colors duration-200">Inicio</a>
+            <a href="#idiomas" class="text-navy-200 hover:text-white font-medium text-sm transition-colors duration-200">Idiomas</a>
+            <a href="#horarios" class="text-navy-200 hover:text-white font-medium text-sm transition-colors duration-200">Horarios y Niveles</a>
+            <a href="#sedes" class="text-navy-200 hover:text-white font-medium text-sm transition-colors duration-200">Sedes</a>
+            <a href="#inscripcion" class="bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 hover:from-gold-400 hover:to-gold-500 font-bold px-5 py-2.5 rounded-xl text-sm transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-gold-600/10">Inscribirse</a>
+        </nav>
+
+        <!-- Botón menú móvil -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-navy-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 rounded-lg">
+            <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+        </button>
+    </div>
+
+    <!-- Menú desplegable móvil -->
+    <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-b border-navy-800 transition-all duration-300">
+        <div class="px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block text-navy-200 hover:text-white font-medium py-2 rounded-md">Inicio</a>
+            <a href="#idiomas" class="block text-navy-200 hover:text-white font-medium py-2 rounded-md">Idiomas</a>
+            <a href="#horarios" class="block text-navy-200 hover:text-white font-medium py-2 rounded-md">Horarios y Niveles</a>
+            <a href="#sedes" class="block text-navy-200 hover:text-white font-medium py-2 rounded-md">Sedes</a>
+            <a href="#inscripcion" class="block bg-gold-500 text-navy-950 hover:bg-gold-400 font-bold px-4 py-3 rounded-xl text-center shadow-md">Inscribirse Ahora</a>
+        </div>
+    </div>
+</header>
+
+<!-- HÉROE & INTRODUCCIÓN -->
+<section id="inicio" class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950">
+    <!-- Grid decorativo de fondo -->
+    <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+    <!-- Luces decorativas -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-navy-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Texto principal -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left" data-aos="fade-right">
+                <div class="inline-flex items-center space-x-2 bg-navy-800/60 border border-navy-700 px-4 py-1.5 rounded-full text-gold-400 text-xs font-semibold uppercase tracking-wider">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                    <span>Trayectoria educativa de excelencia</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    Domina el mundo <br class="hidden sm:inline"> 
+                    <span class="bg-gradient-to-r from-gold-400 via-gold-500 to-yellow-300 bg-clip-text text-transparent">a través de sus lenguas</span>
+                </h1>
+                
+                <p class="text-lg text-navy-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    En <strong class="text-white">Brighton Language Academy</strong> llevamos <span class="text-gold-400 font-semibold underline decoration-2 decoration-gold-500 underline-offset-4">más de 25 años</span> transformando el futuro de miles de estudiantes. Brindamos una enseñanza de idiomas dinámica y de primer nivel adaptada a los desafíos globales de hoy.
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#inscripcion" class="bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 hover:from-gold-400 hover:to-gold-500 font-bold px-8 py-4 rounded-xl shadow-xl shadow-gold-600/10 flex items-center justify-center space-x-2 transition-all duration-300 transform hover:-translate-y-1">
+                        <span>Iniciar mi inscripción</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#idiomas" class="border border-navy-700 bg-navy-900/50 hover:bg-navy-800 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2">
+                        <span>Explorar Cursos</span>
+                    </a>
+                </div>
+
+                <!-- Estadísticas rápidas -->
+                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-navy-800/80 max-w-lg mx-auto lg:mx-0">
+                    <div>
+                        <span class="block text-3xl font-bold text-white">25+</span>
+                        <span class="text-xs text-navy-300">Años de Historia</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-bold text-white">15k+</span>
+                        <span class="text-xs text-navy-300">Graduados</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-bold text-white">100%</span>
+                        <span class="text-xs text-navy-300">Garantía Examen</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel interactivo derecho -->
+            <div class="lg:col-span-5 relative" data-aos="fade-left">
+                <div class="relative bg-gradient-to-br from-navy-900 to-navy-950 border border-navy-800 p-8 rounded-3xl shadow-2xl shadow-navy-950">
+                    <!-- Icono flotante decorativo -->
+                    <div class="absolute -top-5 -right-5 bg-gold-500 text-navy-950 p-4 rounded-2xl shadow-lg shadow-gold-500/20 rotate-12">
+                        <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="check-circle" class="text-gold-400 w-5 h-5"></i>
+                        ¿Por qué elegir Brighton?
+                    </h3>
+                    
+                    <ul class="space-y-4 text-navy-200">
+                        <li class="flex items-start gap-3">
+                            <span class="bg-navy-800 text-gold-400 p-1 rounded-md mt-0.5"><i data-lucide="users" class="w-4 h-4"></i></span>
+                            <div>
+                                <strong class="text-white block">Grupos Reducidos</strong>
+                                Atención personalizada para maximizar tu expresión oral.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="bg-navy-800 text-gold-400 p-1 rounded-md mt-0.5"><i data-lucide="globe" class="w-4 h-4"></i></span>
+                            <div>
+                                <strong class="text-white block">Enfoque Global</strong>
+                                Programas integrados con cultura y preparación internacional.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="bg-navy-800 text-gold-400 p-1 rounded-md mt-0.5"><i data-lucide="award" class="w-4 h-4"></i></span>
+                            <div>
+                                <strong class="text-white block">Certificación Oficial</strong>
+                                Estándar alineado al Marco Común Europeo (MCER).
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VALIDACIÓN / UNIVERSIDADES PRESTIGIOSAS -->
+<section class="py-12 bg-navy-950 border-y border-navy-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-xs font-semibold uppercase tracking-widest text-navy-400 mb-8">
+            Nuestros planes de estudio cuentan con el aval y validación de las instituciones más prestigiosas
+        </p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-75 grayscale hover:grayscale-0 transition-all duration-500">
+            <!-- Cambridge Badge -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="bg-navy-900 border border-navy-800 p-3 rounded-xl flex items-center justify-center w-40 h-16">
+                    <span class="text-sm font-extrabold tracking-tight text-white flex items-center gap-1">
+                        <i data-lucide="shield-check" class="text-blue-400 w-4 h-4"></i> CAMBRIDGE
+                    </span>
+                </div>
+                <span class="text-[10px] text-navy-400 font-semibold tracking-wider">Exam Preparation Centre</span>
+            </div>
+
+            <!-- Oxford Education Badge -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="bg-navy-900 border border-navy-800 p-3 rounded-xl flex items-center justify-center w-40 h-16">
+                    <span class="text-sm font-black tracking-tight text-white flex items-center gap-1">
+                        <i data-lucide="book-open" class="text-red-400 w-4 h-4"></i> OXFORD <span class="text-xs font-light">Edu.</span>
+                    </span>
+                </div>
+                <span class="text-[10px] text-navy-400 font-semibold tracking-wider">Curriculum Approved</span>
+            </div>
+
+            <!-- Google for Education Badge -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="bg-navy-900 border border-navy-800 p-3 rounded-xl flex items-center justify-center w-40 h-16">
+                    <span class="text-sm font-bold tracking-tight text-white flex items-center gap-1">
+                        <i data-lucide="chrome" class="text-emerald-400 w-4 h-4"></i> GOOGLE <span class="text-xs font-light">for Edu.</span>
+                    </span>
+                </div>
+                <span class="text-[10px] text-navy-400 font-semibold tracking-wider">Digital Ecosystem</span>
+            </div>
+
+            <!-- Alliance Badge -->
+            <div class="flex flex-col items-center space-y-2 text-center">
+                <div class="bg-navy-900 border border-navy-800 p-3 rounded-xl flex items-center justify-center w-40 h-16">
+                    <span class="text-sm font-extrabold tracking-tight text-white flex items-center gap-1">
+                        <i data-lucide="award" class="text-gold-400 w-4 h-4"></i> GLOBAL <span class="text-xs font-light">CEFR</span>
+                    </span>
+                </div>
+                <span class="text-[10px] text-navy-400 font-semibold tracking-wider">European Standards</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- IDIOMAS DISPONIBLES -->
+<section id="idiomas" class="py-24 bg-navy-900/40 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-navy-950 to-navy-900 pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                Nuestros Programas de Idiomas
+            </h2>
+            <p class="mt-4 text-navy-200">
+                Ofrecemos una amplia gama de opciones lingüísticas con programas diseñados para desarrollar las habilidades cognitivas, laborales y conversacionales.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Español -->
+            <div class="bg-navy-950/80 border border-navy-800 rounded-3xl p-6 hover:border-gold-500/30 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="bg-orange-500/10 text-orange-400 p-3 rounded-2xl group-hover:bg-orange-500/20 transition-colors">
+                        <i data-lucide="languages" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-orange-400 bg-orange-500/10 px-2.5 py-1 rounded-full">Español</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Español para Extranjeros</h3>
+                <p class="text-sm text-navy-300 mb-6">Domina la segunda lengua más hablada del mundo comercial. Enfocado en inmersión cultural rioplatense y comunicación empresarial activa.</p>
+                <div class="border-t border-navy-800 pt-4 flex justify-between text-xs text-navy-400">
+                    <span>Niveles: A1 - C2</span>
+                    <span class="text-gold-400 font-semibold">Examen Certificado</span>
+                </div>
+            </div>
+
+            <!-- Inglés -->
+            <div class="bg-navy-950/80 border border-navy-800 rounded-3xl p-6 hover:border-gold-500/30 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="bg-blue-500/10 text-blue-400 p-3 rounded-2xl group-hover:bg-blue-500/20 transition-colors">
+                        <i data-lucide="navigation" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-full">Inglés</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Inglés Internacional</h3>
+                <p class="text-sm text-navy-300 mb-6">La llave del mundo global. Preparación oficial para exámenes internacionales de Cambridge (FCE, CAE, CPE, IELTS) y Business English.</p>
+                <div class="border-t border-navy-800 pt-4 flex justify-between text-xs text-navy-400">
+                    <span>Niveles: A1 - C2</span>
+                    <span class="text-gold-400 font-semibold">Preparación Cambridge</span>
+                </div>
+            </div>
+
+            <!-- Portugués -->
+            <div class="bg-navy-950/80 border border-navy-800 rounded-3xl p-6 hover:border-gold-500/30 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-2xl group-hover:bg-emerald-500/20 transition-colors">
+                        <i data-lucide="compass" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">Portugués</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Portugués de Negocios</h3>
+                <p class="text-sm text-navy-300 mb-6">Conéctate directamente con el gigante de la región. Enfoque práctico en el Mercosur, acento de Brasil y preparación para Celpe-Bras.</p>
+                <div class="border-t border-navy-800 pt-4 flex justify-between text-xs text-navy-400">
+                    <span>Niveles: A1 - C2</span>
+                    <span class="text-gold-400 font-semibold">Examen Oficial</span>
+                </div>
+            </div>
+
+            <!-- Francés -->
+            <div class="bg-navy-950/80 border border-navy-800 rounded-3xl p-6 hover:border-gold-500/30 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="400">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="bg-sky-500/10 text-sky-400 p-3 rounded-2xl group-hover:bg-sky-500/20 transition-colors">
+                        <i data-lucide="feather" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-full">Francés</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Francés Académico</h3>
+                <p class="text-sm text-navy-300 mb-6">El idioma de la diplomacia y el arte. Cursos dinámicos desde cero, con énfasis en conversación, pronunciación y certificaciones DELF/DALF.</p>
+                <div class="border-t border-navy-800 pt-4 flex justify-between text-xs text-navy-400">
+                    <span>Niveles: A1 - C2</span>
+                    <span class="text-gold-400 font-semibold">Preparación DELF</span>
+                </div>
+            </div>
+
+            <!-- Alemán -->
+            <div class="bg-navy-950/80 border border-navy-800 rounded-3xl p-6 hover:border-gold-500/30 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="500">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="bg-yellow-500/10 text-yellow-500 p-3 rounded-2xl group-hover:bg-yellow-500/20 transition-colors">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-yellow-500 bg-yellow-500/10 px-2.5 py-1 rounded-full">Alemán</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Alemán Tecnológico</h3>
+                <p class="text-sm text-navy-300 mb-6">El motor de ingeniería y ciencia en Europa. Impulsa tu carrera técnica o científica con metodologías de inmersión y exámenes de Goethe-Institut.</p>
+                <div class="border-t border-navy-800 pt-4 flex justify-between text-xs text-navy-400">
+                    <span>Niveles: A1 - C2</span>
+                    <span class="text-gold-400 font-semibold">Goethe-Zertifikat</span>
+                </div>
+            </div>
+
+            <!-- Italiano -->
+            <div class="bg-navy-950/80 border border-navy-800 rounded-3xl p-6 hover:border-gold-500/30 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="600">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="bg-red-500/10 text-red-400 p-3 rounded-2xl group-hover:bg-red-500/20 transition-colors">
+                        <i data-lucide="palette" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-red-400 bg-red-500/10 px-2.5 py-1 rounded-full">Italiano</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Italiano Cultural</h3>
+                <p class="text-sm text-navy-300 mb-6">Conecta con la historia, el diseño y la gastronomía de primer orden. Desarrolla fluidez conversacional y comprensión escrita.</p>
+                <div class="border-t border-navy-800 pt-4 flex justify-between text-xs text-navy-400">
+                    <span>Niveles: A1 - C2</span>
+                    <span class="text-gold-400 font-semibold">Examen CILS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HORARIOS Y NIVELES -->
+<section id="horarios" class="py-24 bg-navy-950 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <!-- Columna Horarios -->
+            <div class="lg:col-span-7 space-y-8" data-aos="fade-right">
+                <div>
+                    <span class="text-gold-400 text-xs font-bold uppercase tracking-wider block mb-2">Flexibilidad Absoluta</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Horarios Semanales</h2>
+                    <p class="text-navy-200 mt-2">Nuestra academia abre sus puertas para brindarte opciones óptimas y organizadas que se adaptan a tu agenda laboral y personal.</p>
+                </div>
+
+                <div class="bg-navy-900 border border-navy-800 p-6 rounded-3xl space-y-4">
+                    <div class="flex justify-between items-center pb-4 border-b border-navy-800">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="calendar" class="text-gold-400 w-5 h-5"></i>
+                            <span class="text-white font-bold">Días de Clase</span>
+                        </div>
+                        <span class="text-navy-200 text-sm font-medium">Lunes a Sábado <span class="text-red-400">(Domingos Cerrado)</span></span>
+                    </div>
+
+                    <div class="flex justify-between items-center pb-4 border-b border-navy-800">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="clock" class="text-gold-400 w-5 h-5"></i>
+                            <span class="text-white font-bold">Rango de Apertura</span>
+                        </div>
+                        <span class="text-navy-200 text-sm font-medium">08:00 AM - 09:00 PM (21:00)</span>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="hourglass" class="text-gold-400 w-5 h-5"></i>
+                            <span class="text-white font-bold">Duración de Clase</span>
+                        </div>
+                        <span class="bg-gold-500/10 text-gold-400 font-semibold px-3 py-1 rounded-full text-xs">2 Horas Exactas por Clase</span>
+                    </div>
+                </div>
+
+                <!-- Bloques Horarios Recomendados -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Bloques de Horarios Disponibles</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div class="bg-navy-900/60 border border-navy-800 hover:border-navy-700 p-3 rounded-xl text-center">
+                            <span class="block text-xs text-navy-400 font-semibold mb-1">Turno Mañana</span>
+                            <span class="text-white font-bold text-sm">08:00 - 10:00</span>
+                        </div>
+                        <div class="bg-navy-900/60 border border-navy-800 hover:border-navy-700 p-3 rounded-xl text-center">
+                            <span class="block text-xs text-navy-400 font-semibold mb-1">Turno Mañana</span>
+                            <span class="text-white font-bold text-sm">10:00 - 12:00</span>
+                        </div>
+                        <div class="bg-navy-900/60 border border-navy-800 hover:border-navy-700 p-3 rounded-xl text-center">
+                            <span class="block text-xs text-navy-400 font-semibold mb-1">Turno Mediodía</span>
+                            <span class="text-white font-bold text-sm">12:00 - 14:00</span>
+                        </div>
+                        <div class="bg-navy-900/60 border border-navy-800 hover:border-navy-700 p-3 rounded-xl text-center">
+                            <span class="block text-xs text-navy-400 font-semibold mb-1">Turno Tarde</span>
+                            <span class="text-white font-bold text-sm">14:00 - 16:00</span>
+                        </div>
+                        <div class="bg-navy-900/60 border border-navy-800 hover:border-navy-700 p-3 rounded-xl text-center">
+                            <span class="block text-xs text-navy-400 font-semibold mb-1">Turno Tarde</span>
+                            <span class="text-white font-bold text-sm">16:00 - 18:00</span>
+                        </div>
+                        <div class="bg-navy-900/60 border border-navy-800 hover:border-navy-700 p-3 rounded-xl text-center">
+                            <span class="block text-xs text-navy-400 font-semibold mb-1">Turno Noche</span>
+                            <span class="text-white font-bold text-sm">18:00 - 20:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Niveles -->
+            <div class="lg:col-span-5 space-y-8" data-aos="fade-left">
+                <div>
+                    <span class="text-gold-400 text-xs font-bold uppercase tracking-wider block mb-2">Tu propio ritmo</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Todos los Niveles</h2>
+                    <p class="text-navy-200 mt-2">Adaptamos tu formación de acuerdo al estándar global del Marco Común Europeo de Referencia para las Lenguas (MCER).</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Niveles Iniciales -->
+                    <div class="bg-navy-900/40 border border-navy-800 p-4 rounded-2xl flex items-center justify-between hover:bg-navy-900/60 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="w-12 h-12 bg-emerald-500/10 text-emerald-400 font-black flex items-center justify-center rounded-xl border border-emerald-500/20">A1-A2</span>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Nivel Básico / Principiante</h4>
+                                <p class="text-xs text-navy-300">Expresiones cotidianas y frases de uso frecuente.</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="text-navy-500 w-5 h-5"></i>
+                    </div>
+
+                    <!-- Niveles Intermedios -->
+                    <div class="bg-navy-900/40 border border-navy-800 p-4 rounded-2xl flex items-center justify-between hover:bg-navy-900/60 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="w-12 h-12 bg-blue-500/10 text-blue-400 font-black flex items-center justify-center rounded-xl border border-blue-500/20">B1-B2</span>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Nivel Intermedio / Independiente</h4>
+                                <p class="text-xs text-navy-300">Fluidez operativa y comprensión de textos complejos.</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="text-navy-500 w-5 h-5"></i>
+                    </div>
+
+                    <!-- Niveles Avanzados -->
+                    <div class="bg-navy-900/40 border border-navy-800 p-4 rounded-2xl flex items-center justify-between hover:bg-navy-900/60 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="w-12 h-12 bg-gold-500/10 text-gold-400 font-black flex items-center justify-center rounded-xl border border-gold-500/20">C1-C2</span>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Nivel Avanzado / Maestría</h4>
+                                <p class="text-xs text-navy-300">Fluidez espontánea, académica y aptitud profesional.</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="text-navy-500 w-5 h-5"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SEDES ALREDEDOR DE TODO URUGUAY -->
+<section id="sedes" class="py-24 bg-gradient-to-b from-navy-950 to-navy-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <span class="text-gold-400 text-xs font-bold uppercase tracking-wider">Cerca de ti</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Sedes en todo el Uruguay</h2>
+            <p class="mt-4 text-navy-200">
+                Llevamos educación de excelencia a cada rincón del país. Selecciona tu departamento para conocer nuestra ubicación oficial.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Selector de sedes en Uruguay -->
+            <div class="lg:col-span-4 space-y-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                <button onclick="cambiarSede('montevideo')" class="sede-btn w-full text-left bg-navy-800 hover:bg-navy-700/80 border border-navy-700 p-4 rounded-2xl flex items-center justify-between group transition-all duration-200" id="btn-montevideo">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="map-pin" class="text-gold-400 group-hover:scale-110 transition-transform"></i>
+                        <div>
+                            <strong class="text-white block text-sm">Montevideo (Sede Central)</strong>
+                            <span class="text-xs text-navy-300">18 de Julio y Ejido</span>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="text-navy-400 w-4 h-4"></i>
+                </button>
+
+                <button onclick="cambiarSede('maldonado')" class="sede-btn w-full text-left bg-navy-900 hover:bg-navy-800/80 border border-navy-800 p-4 rounded-2xl flex items-center justify-between group transition-all duration-200" id="btn-maldonado">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="map-pin" class="text-navy-500 group-hover:scale-110 transition-transform"></i>
+                        <div>
+                            <strong class="text-white block text-sm">Maldonado</strong>
+                            <span class="text-xs text-navy-300">Av. Roosevelt y Pedragosa Sierra</span>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="text-navy-400 w-4 h-4"></i>
+                </button>
+
+                <button onclick="cambiarSede('colonia')" class="sede-btn w-full text-left bg-navy-900 hover:bg-navy-800/80 border border-navy-800 p-4 rounded-2xl flex items-center justify-between group transition-all duration-200" id="btn-colonia">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="map-pin" class="text-navy-500 group-hover:scale-110 transition-transform"></i>
+                        <div>
+                            <strong class="text-white block text-sm">Colonia</strong>
+                            <span class="text-xs text-navy-300">Av. General Flores y Rivera</span>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="text-navy-400 w-4 h-4"></i>
+                </button>
+
+                <button onclick="cambiarSede('salto')" class="sede-btn w-full text-left bg-navy-900 hover:bg-navy-800/80 border border-navy-800 p-4 rounded-2xl flex items-center justify-between group transition-all duration-200" id="btn-salto">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="map-pin" class="text-navy-500 group-hover:scale-110 transition-transform"></i>
+                        <div>
+                            <strong class="text-white block text-sm">Salto</strong>
+                            <span class="text-xs text-navy-300">Uruguay y Larrañaga</span>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="text-navy-400 w-4 h-4"></i>
+                </button>
+
+                <button onclick="cambiarSede('rivera')" class="sede-btn w-full text-left bg-navy-900 hover:bg-navy-800/80 border border-navy-800 p-4 rounded-2xl flex items-center justify-between group transition-all duration-200" id="btn-rivera">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="map-pin" class="text-navy-500 group-hover:scale-110 transition-transform"></i>
+                        <div>
+                            <strong class="text-white block text-sm">Rivera</strong>
+                            <span class="text-xs text-navy-300">Sarandí y Paysandú</span>
+                        </div>
+                    </div>
+                    <i data-lucide="chevron-right" class="text-navy-400 w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- Mapa / Información Visual Sede Activa -->
+            <div class="lg:col-span-8 bg-navy-900 border border-navy-800 rounded-3xl p-6 sm:p-8 relative overflow-hidden" data-aos="zoom-in">
+                <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row gap-8 justify-between">
+                    <div class="space-y-6 md:max-w-xs">
+                        <div class="inline-flex bg-navy-800 px-3 py-1 rounded-lg text-xs font-semibold text-gold-400">
+                            Sede Activa
+                        </div>
+                        <h3 class="text-2xl font-bold text-white" id="sede-nombre">Montevideo (Sede Central)</h3>
+                        <p class="text-sm text-navy-200" id="sede-descripcion">La sede central de Brighton cuenta con aulas multimedia de última tecnología, biblioteca de autoestudio, y laboratorios lingüísticos inteligentes.</p>
+                        
+                        <div class="space-y-3 pt-4 border-t border-navy-800 text-xs">
+                            <div class="flex items-center gap-2 text-navy-300">
+                                <i data-lucide="phone" class="w-4 h-4 text-gold-400"></i>
+                                <span id="sede-telefono">Tel: +598 2902 4545</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-navy-300">
+                                <i data-lucide="mail" class="w-4 h-4 text-gold-400"></i>
+                                <span id="sede-correo">montevideo@brighton.edu.uy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Representación del Mapa / Info de Uruguay -->
+                    <div class="flex-1 bg-navy-950 border border-navy-800 rounded-2xl p-6 relative flex flex-col justify-between min-h-[250px]">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-10">
+                            <!-- SVG representativo de Uruguay -->
+                            <svg class="w-full h-full max-h-52 text-white" viewBox="0 0 100 100" fill="currentColor">
+                                <path d="M50 10 C 60 15, 70 12, 80 25 C 90 35, 95 50, 85 65 C 75 80, 60 85, 45 90 C 30 92, 15 80, 10 65 C 5 50, 8 35, 20 20 C 32 5, 40 5, 50 10 Z" />
+                            </svg>
+                        </div>
+                        <div class="relative z-10">
+                            <span class="block text-[11px] text-navy-400 uppercase font-black tracking-widest mb-1">Presencia Nacional</span>
+                            <h4 class="text-lg font-bold text-white">Cobertura en los 19 Departamentos</h4>
+                            <p class="text-xs text-navy-300 mt-2">¿No tienes una sede física cerca? No te preocupes. Nuestra <strong>Sede Virtual Brighton</strong> cubre todo el territorio nacional con docentes en vivo y plataformas de última generación.</p>
+                        </div>
+                        <div class="relative z-10 bg-navy-900 border border-navy-800 p-3 rounded-xl flex items-center gap-3">
+                            <i data-lucide="laptop" class="text-gold-400 w-5 h-5 flex-shrink-0"></i>
+                            <div class="text-xs">
+                                <span class="block font-bold text-white">Sede Digital Disponible</span>
+                                <span class="text-navy-300">Clases síncronas 100% online con los mismos profesores.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO SECCIÓN (IMPORTANCIA DE IDIOMAS) -->
+<section class="py-24 bg-navy-950 border-t border-navy-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5 space-y-6" data-aos="fade-right">
+                <div class="inline-flex items-center space-x-2 bg-navy-900 border border-navy-800 px-3 py-1 rounded-full text-gold-400 text-xs font-semibold uppercase">
+                    <i data-lucide="video" class="w-3.5 h-3.5"></i>
+                    <span>Inspiración & Propósito</span>
+                </div>
+                
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    ¿Por qué aprender idiomas hoy?
+                </h2>
+                
+                <p class="text-base text-navy-200 leading-relaxed">
+                    Aprender un nuevo idioma es mucho más que adquirir vocabulario; es reconfigurar tu mente, ampliar horizontes culturales y potenciar exponencialmente tus oportunidades de desarrollo profesional.
+                </p>
+
+                <div class="space-y-4 pt-2">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="text-gold-400 w-5 h-5 flex-shrink-0 mt-1"></i>
+                        <span class="text-sm text-navy-300"><strong class="text-white">Plasticidad cerebral:</strong> Fortalece las conexiones neuronales y estimula el pensamiento crítico.</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="text-gold-400 w-5 h-5 flex-shrink-0 mt-1"></i>
+                        <span class="text-sm text-navy-300"><strong class="text-white">Oportunidades globales:</strong> Consigue mejores empleos remotos o de migración profesional.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor del video con optimización responsive -->
+            <div class="lg:col-span-7" data-aos="fade-left">
+                <div class="relative bg-navy-900 border border-navy-800 p-2.5 rounded-3xl shadow-2xl shadow-navy-950/50">
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden relative">
+                        <!-- Iframe de YouTube con compatibilidad y seguridad requerida -->
+                        <iframe 
+                            class="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/NSht8UHwNV8" 
+                            title="La importancia del aprendizaje de idiomas" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FORMULARIO DE INSCRIPCIÓN -->
+<section id="inscripcion" class="py-24 bg-navy-900 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-15"></div>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Formulario de Inscripción</h2>
+            <p class="mt-4 text-navy-200">Completa tus datos y un coordinador de tu sede Brighton más cercana se pondrá en contacto contigo en menos de 24 horas.</p>
+        </div>
+
+        <div class="bg-navy-950/80 border border-navy-800 p-8 sm:p-10 rounded-3xl shadow-2xl shadow-navy-950" data-aos="fade-up">
+            <form id="brighton-form" onsubmit="handleInscripcion(event)" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Nombre Completo -->
+                    <div>
+                        <label for="nombre" class="block text-xs font-bold text-navy-300 uppercase tracking-wider mb-2">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" required 
+                            class="w-full bg-navy-900 border border-navy-800 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all"
+                            placeholder="Ej. Juan Pérez">
+                    </div>
+
+                    <!-- Correo Electrónico -->
+                    <div>
+                        <label for="email" class="block text-xs font-bold text-navy-300 uppercase tracking-wider mb-2">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full bg-navy-900 border border-navy-800 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all"
+                            placeholder="juan@ejemplo.com">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Teléfono / Celular -->
+                    <div>
+                        <label for="telefono" class="block text-xs font-bold text-navy-300 uppercase tracking-wider mb-2">Celular / Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" required
+                            class="w-full bg-navy-900 border border-navy-800 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all"
+                            placeholder="Ej. 099 123 456">
+                    </div>
+
+                    <!-- Departamento de Sede -->
+                    <div>
+                        <label for="sede" class="block text-xs font-bold text-navy-300 uppercase tracking-wider mb-2">Sede de Interés</label>
+                        <select id="sede" name="sede" required
+                            class="w-full bg-navy-900 border border-navy-800 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all">
+                            <option value="montevideo">Sede Montevideo (Central)</option>
+                            <option value="maldonado">Sede Maldonado</option>
+                            <option value="colonia">Sede Colonia</option>
+                            <option value="salto">Sede Salto</option>
+                            <option value="rivera">Sede Rivera</option>
+                            <option value="online">Sede Online (Todo el país)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Idioma a cursar -->
+                    <div>
+                        <label for="idioma" class="block text-xs font-bold text-navy-300 uppercase tracking-wider mb-2">Idioma a Cursar</label>
+                        <select id="idioma" name="idioma" required
+                            class="w-full bg-navy-900 border border-navy-800 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all">
+                            <option value="ingles">Inglés</option>
+                            <option value="portugues">Portugués</option>
+                            <option value="espanol">Español para Extranjeros</option>
+                            <option value="frances">Francés</option>
+                            <option value="aleman">Alemán</option>
+                            <option value="italiano">Italiano</option>
+                        </select>
+                    </div>
+
+                    <!-- Nivel Actual -->
+                    <div>
+                        <label for="nivel" class="block text-xs font-bold text-navy-300 uppercase tracking-wider mb-2">Nivel Estimado</label>
+                        <select id="nivel" name="nivel" required
+                            class="w-full bg-navy-900 border border-navy-800 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all">
+                            <option value="principiante">Principiante (Desde Cero - A1/A2)</option>
+                            <option value="intermedio">Intermedio (Sé algo - B1/B2)</option>
+                            <option value="avanzado">Avanzado (Fluido - C1/C2)</option>
+                            <option value="nose">No estoy seguro (Deseo prueba de nivelación gratis)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Horario sugerido (Bloques de 2 horas) -->
+                <div>
+                    <label for="horario-preferido" class="block text-xs font-bold text-navy-300 uppercase tracking-wider mb-2">Preferencia de Horario (De lunes a sábados, bloques de 2hs)</label>
+                    <select id="horario-preferido" name="horario-preferido" required
+                        class="w-full bg-navy-900 border border-navy-800 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all">
+                        <option value="08:00 - 10:00">Turno Mañana: 08:00 - 10:00</option>
+                        <option value="10:00 - 12:00">Turno Mañana: 10:00 - 12:00</option>
+                        <option value="12:00 - 14:00">Turno Mediodía: 12:00 - 14:00</option>
+                        <option value="14:00 - 16:00">Turno Tarde: 14:00 - 16:00</option>
+                        <option value="16:00 - 18:00">Turno Tarde: 16:00 - 18:00</option>
+                        <option value="18:00 - 20:00">Turno Noche: 18:00 - 20:00</option>
+                        <option value="personalizado">Deseo coordinar otro horario específico</option>
+                    </select>
+                </div>
+
+                <!-- Términos -->
+                <div class="flex items-start gap-3">
+                    <input type="checkbox" id="terminos" name="terminos" required
+                        class="w-5 h-5 rounded bg-navy-900 border border-navy-800 text-gold-500 focus:ring-gold-500 focus:ring-offset-navy-950">
+                    <label for="terminos" class="text-xs text-navy-300">
+                        Acepto ser contactado vía WhatsApp, correo electrónico o llamada telefónica por el equipo Brighton Uruguay.
+                    </label>
+                </div>
+
+                <!-- Botón de envío -->
+                <button type="submit" 
+                    class="w-full bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 hover:from-gold-400 hover:to-gold-500 font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-gold-500/10 flex items-center justify-center space-x-2 transition-all duration-300 transform hover:-translate-y-0.5">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                    <span>Enviar mi Solicitud</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- NOTIFICACIONES CUSTOM (En lugar de alert o confirm) -->
+<div id="toast-success" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-500 max-w-sm w-full bg-navy-900 border border-emerald-500/30 p-5 rounded-2xl shadow-2xl">
+    <div class="flex items-start gap-4">
+        <div class="bg-emerald-500/10 text-emerald-400 p-2 rounded-xl">
+            <i data-lucide="check-circle" class="w-6 h-6"></i>
+        </div>
+        <div class="flex-1">
+            <h4 class="text-white font-bold text-sm">¡Inscripción Recibida!</h4>
+            <p class="text-xs text-navy-200 mt-1">Tu formulario fue procesado con éxito. Un asesor de la academia Brighton se comunicará contigo pronto.</p>
+        </div>
+        <button onclick="closeToast()" class="text-navy-400 hover:text-white">
+            <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-navy-950 border-t border-navy-800/80 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+            
+            <!-- Logo & Info -->
+            <div class="md:col-span-4 space-y-4">
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="bg-gradient-to-tr from-navy-600 to-navy-400 p-2.5 rounded-xl shadow-lg border border-navy-500/30">
+                        <i data-lucide="languages" class="w-5 h-5 text-gold-400"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-black tracking-wider text-white">BRIGHTON</span>
+                        <span class="block text-[8px] text-gold-400 tracking-widest font-semibold uppercase">Language Academy</span>
+                    </div>
+                </a>
+                <p class="text-xs text-navy-300 leading-relaxed max-w-xs">
+                    Abriendo las puertas del conocimiento internacional desde hace más de 25 años en toda la República Oriental del Uruguay.
+                </p>
+            </div>
+
+            <!-- Idiomas Rápidos -->
+            <div class="md:col-span-3 space-y-4">
+                <h4 class="text-white font-bold text-sm tracking-wide">Idiomas Disponibles</h4>
+                <ul class="space-y-2 text-xs text-navy-300">
+                    <li><a href="#idiomas" class="hover:text-gold-400 transition-colors">Inglés Internacional</a></li>
+                    <li><a href="#idiomas" class="hover:text-gold-400 transition-colors">Portugués de Negocios</a></li>
+                    <li><a href="#idiomas" class="hover:text-gold-400 transition-colors">Español para Extranjeros</a></li>
+                    <li><a href="#idiomas" class="hover:text-gold-400 transition-colors">Alemán / Francés / Italiano</a></li>
+                </ul>
+            </div>
+
+            <!-- Sedes -->
+            <div class="md:col-span-3 space-y-4">
+                <h4 class="text-white font-bold text-sm tracking-wide">Contacto Nacional</h4>
+                <ul class="space-y-2 text-xs text-navy-300">
+                    <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-400"></i> Montevideo, Uruguay</li>
+                    <li class="flex items-center gap-2"><i data-lucide="phone" class="w-3.5 h-3.5 text-gold-400"></i> +598 2902 4545</li>
+                    <li class="flex items-center gap-2"><i data-lucide="mail" class="w-3.5 h-3.5 text-gold-400"></i> info@brighton.edu.uy</li>
+                </ul>
+            </div>
+
+            <!-- Certificaciones -->
+            <div class="md:col-span-2 space-y-4">
+                <h4 class="text-white font-bold text-sm tracking-wide">Certificaciones</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-navy-900 border border-navy-800 px-2 py-1 rounded text-[9px] font-semibold text-navy-200">CAMBRIDGE</span>
+                    <span class="bg-navy-900 border border-navy-800 px-2 py-1 rounded text-[9px] font-semibold text-navy-200">OXFORD</span>
+                    <span class="bg-navy-900 border border-navy-800 px-2 py-1 rounded text-[9px] font-semibold text-navy-200">CELPE-BRAS</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="border-t border-navy-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-navy-400">
+            <span>© 2026 Academia de Idiomas Brighton. Todos los derechos reservados.</span>
+            <span>Evaluación Semestral - Proyecto Maquetación Web</span>
+        </div>
+    </div>
+</footer>
+
+<!-- SCRIPTS Y LÓGICA INTERACTIVA -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    // Inicializar iconos Lucide
+    lucide.createIcons();
+
+    // Inicializar animaciones de scroll
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+
+    // Menú de celular funcional
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        if (mobileMenu.classList.contains('hidden')) {
+            menuIcon.setAttribute('data-lucide', 'menu');
+        } else {
+            menuIcon.setAttribute('data-lucide', 'x');
+        }
+        lucide.createIcons();
+    });
+
+    // Cambiar dinámicamente de sede interactiva
+    const sedesData = {
+        montevideo: {
+            nombre: 'Montevideo (Sede Central)',
+            descripcion: 'La sede central de Brighton cuenta con aulas multimedia de última tecnología, biblioteca de autoestudio, y laboratorios lingüísticos inteligentes.',
+            telefono: 'Tel: +598 2902 4545',
+            correo: 'montevideo@brighton.edu.uy'
+        },
+        maldonado: {
+            nombre: 'Sede Maldonado',
+            descripcion: 'Ubicada estratégicamente en el este, nuestra sede de Maldonado ofrece clases intensivas de verano, preparación técnica enfocada en servicios turísticos y hotelería.',
+            telefono: 'Tel: +598 4224 8989',
+            correo: 'maldonado@brighton.edu.uy'
+        },
+        colonia: {
+            nombre: 'Sede Colonia',
+            descripcion: 'Ideal para quienes buscan combinar la paz histórica con el desarrollo académico. Contamos con coordinadores orientados a certificar tus conocimientos en comercio regional.',
+            telefono: 'Tel: +598 4522 3010',
+            correo: 'colonia@brighton.edu.uy'
+        },
+        salto: {
+            nombre: 'Sede Salto',
+            descripcion: 'Nuestra presencia en el litoral norte brinda la mejor opción para estudiantes universitarios y profesionales. Conectividad y excelencia educativa sin distancias.',
+            telefono: 'Tel: +598 4733 1212',
+            correo: 'salto@brighton.edu.uy'
+        },
+        rivera: {
+            nombre: 'Sede Rivera',
+            descripcion: 'Ubicados en la zona fronteriza, nos especializamos en bilingüismo integrado y programas dinámicos de inserción laboral internacional acelerada.',
+            telefono: 'Tel: +598 4622 7070',
+            correo: 'rivera@brighton.edu.uy'
+        }
+    };
+
+    function cambiarSede(clave) {
+        // Actualizar datos del HTML
+        document.getElementById('sede-nombre').innerText = sedesData[clave].nombre;
+        document.getElementById('sede-descripcion').innerText = sedesData[clave].descripcion;
+        document.getElementById('sede-telefono').innerText = sedesData[clave].telefono;
+        document.getElementById('sede-correo').innerText = sedesData[clave].correo;
+
+        // Quitar estilos activos de todos los botones
+        document.querySelectorAll('.sede-btn').forEach(btn => {
+            btn.classList.remove('bg-navy-800', 'border-navy-700');
+            btn.classList.add('bg-navy-900', 'border-navy-800');
+            // Cambiar color del icono secundario a apagado
+            const icon = btn.querySelector('[data-lucide="map-pin"]');
+            if (icon) icon.className = "text-navy-500 group-hover:scale-110 transition-transform";
+        });
+
+        // Aplicar estilos activos al botón presionado
+        const activoBtn = document.getElementById(`btn-${clave}`);
+        activoBtn.classList.remove('bg-navy-900', 'border-navy-800');
+        activoBtn.classList.add('bg-navy-800', 'border-navy-700');
+        const iconActivo = activoBtn.querySelector('[data-lucide="map-pin"]');
+        if (iconActivo) iconActivo.className = "text-gold-400 group-hover:scale-110 transition-transform";
+
+        // Refrescar iconos actualizados
+        lucide.createIcons();
+    }
+
+    // Manejar envío del formulario de inscripción
+    function handleInscripcion(event) {
+        event.preventDefault();
+        
+        // Simular envío de datos a servidor de la academia
+        const toast = document.getElementById('toast-success');
+        
+        // Mostrar animación de Toast de éxito
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        // Limpiar formulario
+        document.getElementById('brighton-form').reset();
+
+        // Cerrar toast automáticamente en 6 segundos
+        setTimeout(() => {
+            closeToast();
+        }, 6000);
+    }
+
+    function closeToast() {
+        const toast = document.getElementById('toast-success');
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+    }
+</script>
+
+</body>
+</html>
